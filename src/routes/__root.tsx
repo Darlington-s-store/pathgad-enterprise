@@ -1,4 +1,9 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
+import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "@/lib/auth";
+import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
 import appCss from "../styles.css?url";
 
@@ -29,11 +34,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "PATHGAD Enterprise — Trade, Construction & Logistics in Ghana" },
+      { name: "description", content: "Ghana's multi-sector enterprise spanning trading, construction, import/export, haulage and air freight." },
+      { name: "author", content: "PATHGAD Enterprise" },
+      { property: "og:title", content: "PATHGAD Enterprise" },
+      { property: "og:description", content: "From Trade to Transport — One Trusted Partner." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -65,5 +70,20 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const hideChrome = ["/login", "/register", "/reset-password"].includes(path) || path.startsWith("/dashboard");
+
+  return (
+    <AuthProvider>
+      <div className="flex min-h-screen flex-col">
+        {!hideChrome && <Navbar />}
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        {!hideChrome && <Footer />}
+        {!path.startsWith("/dashboard") && <WhatsAppButton />}
+      </div>
+      <Toaster position="top-right" toastOptions={{ style: { borderRadius: "8px", background: "#0D1B3E", color: "#fff" } }} />
+    </AuthProvider>
+  );
 }
