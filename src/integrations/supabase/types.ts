@@ -14,13 +14,162 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          meeting_type: string
+          notes: string | null
+          phone: string
+          preferred_date: string
+          preferred_time: string
+          reference: string
+          service: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          meeting_type: string
+          notes?: string | null
+          phone: string
+          preferred_date: string
+          preferred_time: string
+          reference: string
+          service: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          meeting_type?: string
+          notes?: string | null
+          phone?: string
+          preferred_date?: string
+          preferred_time?: string
+          reference?: string
+          service?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      inquiries: {
+        Row: {
+          budget: string | null
+          cargo_type: string | null
+          company: string | null
+          created_at: string
+          description: string | null
+          destination: string | null
+          email: string
+          file_url: string | null
+          full_name: string
+          id: string
+          origin: string | null
+          phone: string
+          reference: string
+          service: string
+          status: string
+          urgency: string | null
+          user_id: string
+          weight: string | null
+        }
+        Insert: {
+          budget?: string | null
+          cargo_type?: string | null
+          company?: string | null
+          created_at?: string
+          description?: string | null
+          destination?: string | null
+          email: string
+          file_url?: string | null
+          full_name: string
+          id?: string
+          origin?: string | null
+          phone: string
+          reference: string
+          service: string
+          status?: string
+          urgency?: string | null
+          user_id: string
+          weight?: string | null
+        }
+        Update: {
+          budget?: string | null
+          cargo_type?: string | null
+          company?: string | null
+          created_at?: string
+          description?: string | null
+          destination?: string | null
+          email?: string
+          file_url?: string | null
+          full_name?: string
+          id?: string
+          origin?: string | null
+          phone?: string
+          reference?: string
+          service?: string
+          status?: string
+          urgency?: string | null
+          user_id?: string
+          weight?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          company: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      track_inquiry: {
+        Args: { _email: string; _reference: string }
+        Returns: {
+          created_at: string
+          kind: string
+          reference: string
+          service: string
+          status: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
