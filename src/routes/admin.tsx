@@ -4,6 +4,7 @@ import { Loader2, ShieldAlert } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { useIsAdmin } from "@/lib/use-admin";
 import { AdminSidebar } from "@/components/site/AdminSidebar";
+import { AdminTopbar } from "@/components/site/AdminTopbar";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({ meta: [{ title: "Admin — PATHGAD" }] }),
@@ -39,9 +40,12 @@ function AdminShell() {
   return (
     <div className="min-h-screen bg-muted/30 md:flex">
       <AdminSidebar />
-      <main className="flex-1 p-5 md:p-10">
-        <Outlet />
-      </main>
+      <div className="flex min-h-screen flex-1 flex-col">
+        <AdminTopbar />
+        <main className="flex-1 p-5 md:p-10">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 }
