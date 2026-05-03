@@ -113,7 +113,7 @@ function Index() {
 
       {/* ABOUT SNIPPET */}
       <section className="container-pg grid items-center gap-12 py-20 md:grid-cols-2">
-        <Placeholder label="Our Story" ratio="aspect-[4/3]" />
+        <img src={heroAbout} alt="PATHGAD team" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />
         <div>
           <span className="text-xs font-semibold uppercase tracking-widest text-gold">About PATHGAD</span>
           <h2 className="mt-2 font-display text-3xl font-bold text-navy md:text-4xl">Built on integrity, scaled by execution.</h2>
