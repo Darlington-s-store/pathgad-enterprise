@@ -69,7 +69,7 @@ function Index() {
               <a href="#services" className="inline-flex items-center gap-2 rounded-md bg-gold px-5 py-3 text-sm font-semibold text-navy transition-transform hover:-translate-y-0.5">
                 Explore Services <ArrowRight className="h-4 w-4" />
               </a>
-              <Link to="/booking" className="inline-flex items-center gap-2 rounded-md border-hairline border-white/40 px-5 py-3 text-sm font-semibold text-primary-foreground hover:border-gold">
+              <Link to="/booking" search={{ service: "" }} className="inline-flex items-center gap-2 rounded-md border-hairline border-white/40 px-5 py-3 text-sm font-semibold text-primary-foreground hover:border-gold">
                 Book Appointment
               </Link>
             </div>
