@@ -5,6 +5,8 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { PageHero } from "@/components/site/PageHero";
+import heroContact from "@/assets/hero-contact.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
