@@ -18,6 +18,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [menu, setMenu] = useState(false);
   const { user, signOut } = useAuth();
+  const { isAdmin } = useIsAdmin();
   const navigate = useNavigate();
   const path = useRouterState({ select: (s) => s.location.pathname });
 
@@ -57,6 +58,11 @@ export function Navbar() {
                   <button onClick={() => { setMenu(false); navigate({ to: "/dashboard" }); }} className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-muted">
                     <LayoutDashboard className="h-4 w-4" /> Dashboard
                   </button>
+                  {isAdmin && (
+                    <button onClick={() => { setMenu(false); navigate({ to: "/admin" }); }} className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-muted">
+                      <Shield className="h-4 w-4" /> Admin
+                    </button>
+                  )}
                   <button onClick={async () => { await signOut(); setMenu(false); navigate({ to: "/" }); }} className="flex w-full items-center gap-2 px-3 py-2 text-sm hover:bg-muted">
                     <LogOut className="h-4 w-4" /> Logout
                   </button>
