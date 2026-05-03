@@ -1,4 +1,4 @@
-import { ShoppingBag, Building2, Globe2, Briefcase, Truck, Users, Plane } from "lucide-react";
+import { ShoppingBag, Building2, Globe2, Briefcase, Truck, Users, Plane, Warehouse, HardHat, Wrench } from "lucide-react";
 import trading from "@/assets/svc-trading.jpg";
 import construction from "@/assets/svc-construction.jpg";
 import importExport from "@/assets/svc-import-export.jpg";
@@ -29,6 +29,16 @@ export const SERVICES = [
   { slug: "air-freight", name: "Freight Air Transport", icon: Plane, image: airFreight,
     desc: "Time-critical air cargo logistics with global airline partnerships.",
     benefits: ["Express transit times", "Door-to-airport-to-door", "Specialist handling"] },
+  { slug: "warehousing", name: "Warehousing & Storage", icon: Warehouse, image: importExport,
+    desc: "Secure short and long-term storage with inventory management for traders and importers.",
+    benefits: ["24/7 security", "Inventory tracking", "Strategic locations"] },
+  { slug: "project-management", name: "Project Management", icon: HardHat, image: construction,
+    desc: "Turnkey planning, procurement and supervision for construction and infrastructure projects.",
+    benefits: ["Certified PMs", "Cost control", "Risk management"] },
+  { slug: "equipment-rental", name: "Equipment Rental", icon: Wrench, image: haulage,
+    desc: "Heavy machinery and commercial vehicles available on flexible rental terms.",
+    benefits: ["Maintained fleet", "Operator optional", "Daily to monthly rates"] },
 ] as const;
 
 export type ServiceSlug = (typeof SERVICES)[number]["slug"];
+

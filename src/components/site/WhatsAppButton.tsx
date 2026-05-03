@@ -1,9 +1,12 @@
 import { MessageCircle } from "lucide-react";
 
+export const WHATSAPP_NUMBER = "233530982527";
+export const WHATSAPP_DISPLAY = "+233 53 098 2527";
+
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/233XXXXXXXXX"
+      href={`https://wa.me/${WHATSAPP_NUMBER}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
