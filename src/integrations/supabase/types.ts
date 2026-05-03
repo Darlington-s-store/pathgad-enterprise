@@ -155,6 +155,54 @@ export type Database = {
         }
         Relationships: []
       }
+      site_settings: {
+        Row: {
+          contact_address: string
+          contact_email: string
+          contact_phone: string
+          facebook_url: string | null
+          id: string
+          linkedin_url: string | null
+          maintenance_message: string
+          maintenance_mode: boolean
+          site_tagline: string
+          twitter_url: string | null
+          updated_at: string
+          updated_by: string | null
+          whatsapp_number: string | null
+        }
+        Insert: {
+          contact_address?: string
+          contact_email?: string
+          contact_phone?: string
+          facebook_url?: string | null
+          id?: string
+          linkedin_url?: string | null
+          maintenance_message?: string
+          maintenance_mode?: boolean
+          site_tagline?: string
+          twitter_url?: string | null
+          updated_at?: string
+          updated_by?: string | null
+          whatsapp_number?: string | null
+        }
+        Update: {
+          contact_address?: string
+          contact_email?: string
+          contact_phone?: string
+          facebook_url?: string | null
+          id?: string
+          linkedin_url?: string | null
+          maintenance_message?: string
+          maintenance_mode?: boolean
+          site_tagline?: string
+          twitter_url?: string | null
+          updated_at?: string
+          updated_by?: string | null
+          whatsapp_number?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

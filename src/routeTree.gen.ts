@@ -18,6 +18,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookingRouteImport } from './routes/booking'
+import { Route as AdminLoginRouteImport } from './routes/admin-login'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -27,6 +28,7 @@ import { Route as DashboardProfileRouteImport } from './routes/dashboard.profile
 import { Route as DashboardInquiriesRouteImport } from './routes/dashboard.inquiries'
 import { Route as DashboardBookingsRouteImport } from './routes/dashboard.bookings'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminInquiriesRouteImport } from './routes/admin.inquiries'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 
@@ -75,6 +77,11 @@ const BookingRoute = BookingRouteImport.update({
   path: '/booking',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin-login',
+  path: '/admin-login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -120,6 +127,11 @@ const AdminUsersRoute = AdminUsersRouteImport.update({
   path: '/users',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminInquiriesRoute = AdminInquiriesRouteImport.update({
   id: '/inquiries',
   path: '/inquiries',
@@ -135,6 +147,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/admin-login': typeof AdminLoginRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
@@ -146,6 +159,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/dashboard/bookings': typeof DashboardBookingsRoute
   '/dashboard/inquiries': typeof DashboardInquiriesRoute
@@ -156,6 +170,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin-login': typeof AdminLoginRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
@@ -166,6 +181,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/dashboard/bookings': typeof DashboardBookingsRoute
   '/dashboard/inquiries': typeof DashboardInquiriesRoute
@@ -178,6 +194,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/admin-login': typeof AdminLoginRoute
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
@@ -189,6 +206,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/inquiries': typeof AdminInquiriesRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/admin/users': typeof AdminUsersRoute
   '/dashboard/bookings': typeof DashboardBookingsRoute
   '/dashboard/inquiries': typeof DashboardInquiriesRoute
@@ -202,6 +220,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/admin'
+    | '/admin-login'
     | '/booking'
     | '/contact'
     | '/dashboard'
@@ -213,6 +232,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/bookings'
     | '/admin/inquiries'
+    | '/admin/settings'
     | '/admin/users'
     | '/dashboard/bookings'
     | '/dashboard/inquiries'
@@ -223,6 +243,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/admin-login'
     | '/booking'
     | '/contact'
     | '/login'
@@ -233,6 +254,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/bookings'
     | '/admin/inquiries'
+    | '/admin/settings'
     | '/admin/users'
     | '/dashboard/bookings'
     | '/dashboard/inquiries'
@@ -244,6 +266,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/admin'
+    | '/admin-login'
     | '/booking'
     | '/contact'
     | '/dashboard'
@@ -255,6 +278,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin/bookings'
     | '/admin/inquiries'
+    | '/admin/settings'
     | '/admin/users'
     | '/dashboard/bookings'
     | '/dashboard/inquiries'
@@ -267,6 +291,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AdminLoginRoute: typeof AdminLoginRoute
   BookingRoute: typeof BookingRoute
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRouteWithChildren
@@ -343,6 +368,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin-login': {
+      id: '/admin-login'
+      path: '/admin-login'
+      fullPath: '/admin-login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin': {
       id: '/admin'
       path: '/admin'
@@ -406,6 +438,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminUsersRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/inquiries': {
       id: '/admin/inquiries'
       path: '/inquiries'
@@ -426,6 +465,7 @@ declare module '@tanstack/react-router' {
 interface AdminRouteChildren {
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminInquiriesRoute: typeof AdminInquiriesRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
@@ -433,6 +473,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminBookingsRoute: AdminBookingsRoute,
   AdminInquiriesRoute: AdminInquiriesRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
@@ -461,6 +502,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
+  AdminLoginRoute: AdminLoginRoute,
   BookingRoute: BookingRoute,
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRouteWithChildren,
