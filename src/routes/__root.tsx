@@ -4,7 +4,6 @@ import { AuthProvider } from "@/lib/auth";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
-import { MaintenanceGate } from "@/components/site/MaintenanceGate";
 
 import appCss from "../styles.css?url";
 
@@ -38,11 +37,15 @@ export const Route = createRootRoute({
       { title: "PATHGAD Enterprise — Trade, Construction & Logistics in Ghana" },
       { name: "description", content: "Ghana's multi-sector enterprise spanning trading, construction, import/export, haulage and air freight." },
       { name: "author", content: "PATHGAD Enterprise" },
-      { property: "og:title", content: "PATHGAD Enterprise" },
-      { property: "og:description", content: "From Trade to Transport — One Trusted Partner." },
+      { property: "og:title", content: "PATHGAD Enterprise — Trade, Construction & Logistics in Ghana" },
+      { property: "og:description", content: "Ghana's multi-sector enterprise spanning trading, construction, import/export, haulage and air freight." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "PATHGAD Enterprise — Trade, Construction & Logistics in Ghana" },
+      { name: "twitter:description", content: "Ghana's multi-sector enterprise spanning trading, construction, import/export, haulage and air freight." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1dfb70cb-7ce2-4f29-8ed2-f0475ef1dcff/id-preview-40b0efa4--652e3a32-e183-4518-9c0c-9203829292a2.lovable.app-1777781574094.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1dfb70cb-7ce2-4f29-8ed2-f0475ef1dcff/id-preview-40b0efa4--652e3a32-e183-4518-9c0c-9203829292a2.lovable.app-1777781574094.png" },
     ],
     links: [
       {
@@ -72,24 +75,18 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const path = useRouterState({ select: (s) => s.location.pathname });
-  const hideChrome =
-    ["/login", "/register", "/reset-password", "/admin-login"].includes(path) ||
-    path.startsWith("/dashboard") ||
-    path === "/admin" || path.startsWith("/admin/");
-  const hideWhatsApp = path.startsWith("/dashboard") || path === "/admin" || path.startsWith("/admin/") || path === "/admin-login";
+  const hideChrome = ["/login", "/register", "/reset-password"].includes(path) || path.startsWith("/dashboard");
 
   return (
     <AuthProvider>
-      <MaintenanceGate>
-        <div className="flex min-h-screen flex-col">
-          {!hideChrome && <Navbar />}
-          <main className="flex-1">
-            <Outlet />
-          </main>
-          {!hideChrome && <Footer />}
-          {!hideWhatsApp && <WhatsAppButton />}
-        </div>
-      </MaintenanceGate>
+      <div className="flex min-h-screen flex-col">
+        {!hideChrome && <Navbar />}
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        {!hideChrome && <Footer />}
+        {!path.startsWith("/dashboard") && <WhatsAppButton />}
+      </div>
       <Toaster position="top-right" />
     </AuthProvider>
   );
