@@ -89,13 +89,3 @@ export function AdminSidebar() {
   );
 }
 
-export function AdminTopbar({ title }: { title: string }) {
-  return (
-    <div className="flex items-center justify-between border-b border-border bg-card px-6 py-4">
-      <h1 className="font-display text-xl font-bold text-navy">{title}</h1>
-      <Link to="/" className="text-xs font-semibold uppercase tracking-widest text-muted-foreground hover:text-navy">
-        View site →
-      </Link>
-    </div>
-  );
-}

@@ -14,6 +14,7 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as MaintenanceRouteImport } from './routes/maintenance'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -55,6 +56,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
 const NewsRoute = NewsRouteImport.update({
   id: '/news',
   path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaintenanceRoute = MaintenanceRouteImport.update({
+  id: '/maintenance',
+  path: '/maintenance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -152,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
+  '/maintenance': typeof MaintenanceRoute
   '/news': typeof NewsRoute
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
@@ -174,6 +181,7 @@ export interface FileRoutesByTo {
   '/booking': typeof BookingRoute
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
+  '/maintenance': typeof MaintenanceRoute
   '/news': typeof NewsRoute
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
@@ -199,6 +207,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
+  '/maintenance': typeof MaintenanceRoute
   '/news': typeof NewsRoute
   '/projects': typeof ProjectsRoute
   '/register': typeof RegisterRoute
@@ -225,6 +234,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/login'
+    | '/maintenance'
     | '/news'
     | '/projects'
     | '/register'
@@ -247,6 +257,7 @@ export interface FileRouteTypes {
     | '/booking'
     | '/contact'
     | '/login'
+    | '/maintenance'
     | '/news'
     | '/projects'
     | '/register'
@@ -271,6 +282,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/dashboard'
     | '/login'
+    | '/maintenance'
     | '/news'
     | '/projects'
     | '/register'
@@ -296,6 +308,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   LoginRoute: typeof LoginRoute
+  MaintenanceRoute: typeof MaintenanceRoute
   NewsRoute: typeof NewsRoute
   ProjectsRoute: typeof ProjectsRoute
   RegisterRoute: typeof RegisterRoute
@@ -338,6 +351,13 @@ declare module '@tanstack/react-router' {
       path: '/news'
       fullPath: '/news'
       preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maintenance': {
+      id: '/maintenance'
+      path: '/maintenance'
+      fullPath: '/maintenance'
+      preLoaderRoute: typeof MaintenanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -507,6 +527,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRouteWithChildren,
   LoginRoute: LoginRoute,
+  MaintenanceRoute: MaintenanceRoute,
   NewsRoute: NewsRoute,
   ProjectsRoute: ProjectsRoute,
   RegisterRoute: RegisterRoute,
