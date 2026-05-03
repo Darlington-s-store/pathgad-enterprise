@@ -52,8 +52,9 @@ function Index() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-navy text-primary-foreground">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: "radial-gradient(circle at 20% 30%, rgba(200,149,42,0.5) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(200,149,42,0.3) 0%, transparent 50%)",
+        <img src={heroHome} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <div className="absolute inset-0" style={{
+          background: "radial-gradient(circle at 20% 30%, rgba(200,149,42,0.25) 0%, transparent 50%), linear-gradient(180deg, rgba(13,27,62,0.85), rgba(13,27,62,0.95))",
         }} />
         <div className="container-pg relative grid gap-12 py-20 md:grid-cols-2 md:py-28">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
