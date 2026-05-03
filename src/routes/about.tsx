@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Placeholder } from "@/components/site/Placeholder";
 import { Award, Target, Heart, Eye } from "lucide-react";
+import { PageHero } from "@/components/site/PageHero";
+import heroAbout from "@/assets/hero-about.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [
@@ -15,15 +16,15 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <>
-      <section className="bg-navy py-16 text-primary-foreground">
-        <div className="container-pg">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold">About Us</span>
-          <h1 className="mt-2 font-display text-4xl font-bold md:text-5xl">Building Ghana's connected economy.</h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About Us"
+        title="Building Ghana's connected economy."
+        subtitle="A decade of trade, construction, and logistics — one trusted partner."
+        image={heroAbout}
+      />
 
       <section className="container-pg grid items-center gap-12 py-16 md:grid-cols-2">
-        <Placeholder label="Founders" />
+        <img src={heroAbout} alt="PATHGAD founders" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />
         <div>
           <h2 className="font-display text-3xl font-bold text-navy">Our Story</h2>
           <p className="mt-4 text-muted-foreground">
