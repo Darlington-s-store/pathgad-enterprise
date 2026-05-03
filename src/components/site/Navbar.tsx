@@ -1,6 +1,7 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, ChevronDown, LogOut, LayoutDashboard } from "lucide-react";
+import { Menu, X, ChevronDown, LogOut, LayoutDashboard, Shield } from "lucide-react";
+import { useIsAdmin } from "@/lib/use-admin";
 import { useAuth } from "@/lib/auth";
 
 const links = [
