@@ -48,7 +48,7 @@ function Reset() {
             </button>
           </form>
         )}
-        <p className="mt-6 text-center text-sm text-muted-foreground"><Link to="/login" className="font-semibold text-navy hover:text-gold">Back to sign in</Link></p>
+        <p className="mt-6 text-center text-sm text-muted-foreground"><Link to="/login" search={{ redirect: "/dashboard" }} className="font-semibold text-navy hover:text-gold">Back to sign in</Link></p>
       </div>
       <style>{`.input{width:100%;border-radius:8px;border:0.5px solid var(--border);background:var(--background);padding:0.625rem 0.75rem;font-size:0.875rem;outline:none} .input:focus{border-color:var(--gold);box-shadow:0 0 0 3px color-mix(in oklab,var(--gold) 20%, transparent)}`}</style>
     </div>
