@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { LayoutDashboard, Calendar, FileText, User as UserIcon, LogOut, Loader2 } from "lucide-react";
-import toast from "react-hot-toast";
+import toast from "sonner";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
 
