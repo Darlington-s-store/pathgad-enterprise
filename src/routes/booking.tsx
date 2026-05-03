@@ -32,12 +32,12 @@ function Booking() {
 
   return (
     <>
-      <section className="bg-navy py-14 text-primary-foreground">
-        <div className="container-pg">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold">Booking</span>
-          <h1 className="mt-2 font-display text-4xl font-bold md:text-5xl">Book, request a quote, or track an inquiry.</h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Booking"
+        title="Book, request a quote, or track an inquiry."
+        subtitle="Schedule a consultation, request pricing, or check the status of an existing request."
+        image={heroBooking}
+      />
 
       <section className="container-pg py-12">
         <div className="mb-6 inline-flex rounded-lg border-hairline border-border bg-card p-1">
