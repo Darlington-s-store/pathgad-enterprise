@@ -4,6 +4,7 @@ import { AuthProvider } from "@/lib/auth";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { MaintenanceGate } from "@/components/site/MaintenanceGate";
 
 import appCss from "../styles.css?url";
 
@@ -71,18 +72,24 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const path = useRouterState({ select: (s) => s.location.pathname });
-  const hideChrome = ["/login", "/register", "/reset-password"].includes(path) || path.startsWith("/dashboard");
+  const hideChrome =
+    ["/login", "/register", "/reset-password", "/admin-login"].includes(path) ||
+    path.startsWith("/dashboard") ||
+    path === "/admin" || path.startsWith("/admin/");
+  const hideWhatsApp = path.startsWith("/dashboard") || path === "/admin" || path.startsWith("/admin/") || path === "/admin-login";
 
   return (
     <AuthProvider>
-      <div className="flex min-h-screen flex-col">
-        {!hideChrome && <Navbar />}
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        {!hideChrome && <Footer />}
-        {!path.startsWith("/dashboard") && <WhatsAppButton />}
-      </div>
+      <MaintenanceGate>
+        <div className="flex min-h-screen flex-col">
+          {!hideChrome && <Navbar />}
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          {!hideChrome && <Footer />}
+          {!hideWhatsApp && <WhatsAppButton />}
+        </div>
+      </MaintenanceGate>
       <Toaster position="top-right" />
     </AuthProvider>
   );
