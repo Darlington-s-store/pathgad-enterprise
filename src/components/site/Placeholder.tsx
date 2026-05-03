@@ -1,4 +1,23 @@
-export function Placeholder({ label, className = "", ratio = "aspect-[4/3]" }: { label?: string; className?: string; ratio?: string }) {
+export function Placeholder({
+  label,
+  className = "",
+  ratio = "aspect-[4/3]",
+  src,
+  alt,
+}: {
+  label?: string;
+  className?: string;
+  ratio?: string;
+  src?: string;
+  alt?: string;
+}) {
+  if (src) {
+    return (
+      <div className={`relative ${ratio} w-full overflow-hidden rounded-lg ${className}`}>
+        <img src={src} alt={alt || label || "PATHGAD"} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      </div>
+    );
+  }
   return (
     <div className={`relative ${ratio} w-full overflow-hidden rounded-lg bg-navy ${className}`}>
       <div className="absolute inset-0 opacity-40" style={{

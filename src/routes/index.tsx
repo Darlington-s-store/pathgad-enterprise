@@ -3,7 +3,8 @@ import { motion, useInView, useMotionValue, useTransform, animate } from "framer
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Quote, Star } from "lucide-react";
 import { SERVICES } from "@/lib/services";
-import { Placeholder } from "@/components/site/Placeholder";
+import heroHome from "@/assets/hero-home.jpg";
+import heroAbout from "@/assets/hero-about.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,8 +52,9 @@ function Index() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-navy text-primary-foreground">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: "radial-gradient(circle at 20% 30%, rgba(200,149,42,0.5) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(200,149,42,0.3) 0%, transparent 50%)",
+        <img src={heroHome} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <div className="absolute inset-0" style={{
+          background: "radial-gradient(circle at 20% 30%, rgba(200,149,42,0.25) 0%, transparent 50%), linear-gradient(180deg, rgba(13,27,62,0.85), rgba(13,27,62,0.95))",
         }} />
         <div className="container-pg relative grid gap-12 py-20 md:grid-cols-2 md:py-28">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
@@ -73,7 +75,7 @@ function Index() {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
-            <Placeholder label="Pathgad HQ" ratio="aspect-[5/4]" />
+            <img src={heroHome} alt="PATHGAD logistics in Ghana" width={1600} height={1280} className="aspect-[5/4] w-full rounded-lg object-cover shadow-2xl" />
           </motion.div>
         </div>
       </section>
@@ -112,7 +114,7 @@ function Index() {
 
       {/* ABOUT SNIPPET */}
       <section className="container-pg grid items-center gap-12 py-20 md:grid-cols-2">
-        <Placeholder label="Our Story" ratio="aspect-[4/3]" />
+        <img src={heroAbout} alt="PATHGAD team" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />
         <div>
           <span className="text-xs font-semibold uppercase tracking-widest text-gold">About PATHGAD</span>
           <h2 className="mt-2 font-display text-3xl font-bold text-navy md:text-4xl">Built on integrity, scaled by execution.</h2>

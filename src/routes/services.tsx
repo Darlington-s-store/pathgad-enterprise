@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, ArrowRight } from "lucide-react";
 import { SERVICES } from "@/lib/services";
-import { Placeholder } from "@/components/site/Placeholder";
+import { PageHero } from "@/components/site/PageHero";
+import heroServices from "@/assets/hero-services.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({ meta: [
@@ -16,17 +17,22 @@ export const Route = createFileRoute("/services")({
 function Services() {
   return (
     <>
-      <section className="bg-navy py-16 text-primary-foreground">
-        <div className="container-pg">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold">Our Services</span>
-          <h1 className="mt-2 font-display text-4xl font-bold md:text-5xl">Seven sectors of expertise.</h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Services"
+        title="Seven sectors of expertise."
+        subtitle="From wholesale trading to global air freight — one accountable partner across the value chain."
+        image={heroServices}
+      />
 
       <div className="container-pg space-y-20 py-20">
         {SERVICES.map((s, idx) => (
-          <section key={s.slug} className={`grid items-center gap-10 md:grid-cols-2 ${idx % 2 === 1 ? "md:[&>*:first-child]:order-last" : ""}`}>
-            <Placeholder label={s.name} />
+          <section key={s.slug} id={s.slug} className={`grid items-center gap-10 md:grid-cols-2 ${idx % 2 === 1 ? "md:[&>*:first-child]:order-last" : ""}`}>
+            <img
+              src={s.image}
+              alt={s.name}
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
+            />
             <div>
               <s.icon className="h-10 w-10 text-gold" />
               <h2 className="mt-3 font-display text-3xl font-bold text-navy">{s.name}</h2>

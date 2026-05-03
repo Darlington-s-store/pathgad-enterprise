@@ -5,6 +5,8 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { PageHero } from "@/components/site/PageHero";
+import heroContact from "@/assets/hero-contact.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
@@ -38,12 +40,12 @@ function Contact() {
 
   return (
     <>
-      <section className="bg-navy py-16 text-primary-foreground">
-        <div className="container-pg">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold">Get in touch</span>
-          <h1 className="mt-2 font-display text-4xl font-bold md:text-5xl">Let's talk.</h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Get in touch"
+        title="Let's talk."
+        subtitle="Office, phone, email — or send us a message below. We respond within one business day."
+        image={heroContact}
+      />
 
       <section className="container-pg grid gap-10 py-16 md:grid-cols-2">
         <div>
