@@ -3,7 +3,8 @@ import { motion, useInView, useMotionValue, useTransform, animate } from "framer
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Quote, Star } from "lucide-react";
 import { SERVICES } from "@/lib/services";
-import { Placeholder } from "@/components/site/Placeholder";
+import heroHome from "@/assets/hero-home.jpg";
+import heroAbout from "@/assets/hero-about.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
