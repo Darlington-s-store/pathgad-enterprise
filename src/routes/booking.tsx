@@ -8,6 +8,8 @@ import { Loader2, CheckCircle2, Clock, Circle } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
 import { SERVICES } from "@/lib/services";
+import { PageHero } from "@/components/site/PageHero";
+import heroBooking from "@/assets/hero-booking.jpg";
 
 export const Route = createFileRoute("/booking")({
   validateSearch: (s: Record<string, unknown>) => ({ service: (s.service as string) || "" }),
