@@ -27,6 +27,14 @@ const projects = [
   { t: "Cocoa Export Logistics", c: "Logistics", img: imgAir, d: "Air-freight of premium cocoa samples to European buyers." },
   { t: "FMCG Wholesale Network", c: "Trading", img: imgTrading, d: "Distribution network covering 6 regions of Ghana." },
   { t: "West Africa Port Imports", c: "Logistics", img: imgImport, d: "Container clearing and inland distribution from Tema port." },
+  { t: "Takoradi Residential Estate", c: "Construction", img: imgConstruction, d: "48-unit gated residential community delivered phase 1 in 10 months." },
+  { t: "Sahel Cross-Border Haulage", c: "Logistics", img: imgHaulage, d: "Bonded transit operation serving Burkina Faso and Mali importers." },
+  { t: "Italian Leather Goods Line", c: "Trading", img: imgLeather, d: "Exclusive distribution of premium Italian leather accessories in Ghana." },
+  { t: "Ashanti Civil Works", c: "Construction", img: heroProjects, d: "Public road rehabilitation and drainage works across 14 km." },
+  { t: "Pharma Cold-Chain Air Freight", c: "Logistics", img: imgAir, d: "Temperature-controlled air shipments for healthcare clients." },
+  { t: "Industrial Equipment Imports", c: "Trading", img: imgImport, d: "Sourcing and clearing of heavy machinery for mining and construction firms." },
+  { t: "Corporate Staff Shuttle", c: "Logistics", img: imgHaulage, d: "Daily passenger shuttle for a multinational with 600+ employees." },
+  { t: "Retail Chain Supply", c: "Trading", img: imgTrading, d: "FMCG supply contract serving 80+ retail outlets nationwide." },
 ];
 const cats = ["All", "Construction", "Logistics", "Trading"] as const;
 

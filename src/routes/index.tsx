@@ -89,10 +89,16 @@ function Index() {
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {SERVICES.map((s) => (
-            <Link key={s.slug} to="/services" className="group rounded-xl border-hairline border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-gold">
-              <s.icon className="h-8 w-8 text-navy transition-colors group-hover:text-gold" />
-              <h3 className="mt-4 font-display text-lg font-semibold text-navy">{s.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+            <Link key={s.slug} to="/services" className="group overflow-hidden rounded-xl border-hairline border-border bg-card transition-all hover:-translate-y-1 hover:border-gold">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img src={s.image} alt={s.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent" />
+                <s.icon className="absolute left-4 top-4 h-7 w-7 text-gold drop-shadow" />
+              </div>
+              <div className="p-5">
+                <h3 className="font-display text-lg font-semibold text-navy">{s.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+              </div>
             </Link>
           ))}
         </div>

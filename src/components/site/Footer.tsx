@@ -27,7 +27,7 @@ export function Footer() {
           <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">Reach Us</h4>
           <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
             <li>Kumasi, Ghana</li>
-            <li>+233 XX XXX XXXX</li>
+            <li>+233 53 098 2527</li>
             <li>info@pathgad.com</li>
             <li><Link to="/contact">Contact form</Link></li>
           </ul>
