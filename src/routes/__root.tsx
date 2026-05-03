@@ -83,7 +83,7 @@ function RootComponent() {
         {!hideChrome && <Footer />}
         {!path.startsWith("/dashboard") && <WhatsAppButton />}
       </div>
-      <Toaster position="top-right" toastOptions={{ style: { borderRadius: "8px", background: "#0D1B3E", color: "#fff" } }} />
+      <Toaster position="top-right" />
     </AuthProvider>
   );
 }
