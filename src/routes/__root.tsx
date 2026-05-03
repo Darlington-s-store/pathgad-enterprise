@@ -1,5 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts, useRouterState } from "@tanstack/react-router";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/lib/auth";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -83,7 +83,7 @@ function RootComponent() {
         {!hideChrome && <Footer />}
         {!path.startsWith("/dashboard") && <WhatsAppButton />}
       </div>
-      <Toaster position="top-right" toastOptions={{ style: { borderRadius: "8px", background: "#0D1B3E", color: "#fff" } }} />
+      <Toaster position="top-right" />
     </AuthProvider>
   );
 }
