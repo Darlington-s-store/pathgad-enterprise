@@ -74,7 +74,7 @@ function Index() {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
-            <Placeholder label="Pathgad HQ" ratio="aspect-[5/4]" />
+            <img src={heroHome} alt="PATHGAD logistics in Ghana" width={1600} height={1280} className="aspect-[5/4] w-full rounded-lg object-cover shadow-2xl" />
           </motion.div>
         </div>
       </section>
