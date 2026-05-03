@@ -86,7 +86,7 @@ export function Navbar() {
                 <button onClick={async () => { await signOut(); setOpen(false); navigate({ to: "/" }); }} className="rounded px-2 py-2 text-left text-sm hover:bg-muted">Logout</button>
               </>
             ) : (
-              <Link to="/login" onClick={() => setOpen(false)} className="rounded bg-navy px-2 py-2 text-center text-sm font-semibold text-primary-foreground">Sign in</Link>
+              <Link to="/login" search={{ redirect: "/dashboard" }} onClick={() => setOpen(false)} className="rounded bg-navy px-2 py-2 text-center text-sm font-semibold text-primary-foreground">Sign in</Link>
             )}
           </div>
         </div>

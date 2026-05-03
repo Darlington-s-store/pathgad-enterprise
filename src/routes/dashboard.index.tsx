@@ -45,7 +45,7 @@ function Overview() {
         ))}
       </div>
       <div className="mt-8 flex flex-wrap gap-3">
-        <Link to="/booking" className="inline-flex rounded-md bg-navy px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-navy/90">New booking or quote</Link>
+        <Link to="/booking" search={{ service: "" }} className="inline-flex rounded-md bg-navy px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-navy/90">New booking or quote</Link>
         <Link to="/dashboard/bookings" className="inline-flex rounded-md border-hairline border-border bg-card px-5 py-2.5 text-sm font-semibold text-navy hover:border-gold">View bookings</Link>
       </div>
     </>
